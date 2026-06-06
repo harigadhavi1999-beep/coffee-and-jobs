@@ -1,3 +1,3 @@
-# config.md — Coffee and Jobs Routine Config
-TELEGRAM_BOT_TOKEN=8873222033:AAFjT03thGBlz9o0f4L4_yH5-B_KrU72MFU
+# config.md
+# Telegram token is passed via routine environment
 TELEGRAM_CHAT_ID=8764421559
