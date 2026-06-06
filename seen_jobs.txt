@@ -1,0 +1,4 @@
+# seen_jobs.txt — Coffee & Jobs Dedup List
+# Format: one job URL per line
+# Updated automatically each run — do not edit manually
+# Created: 2026-06-06
