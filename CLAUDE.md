@@ -10,7 +10,6 @@ IMPORTANT: Follow steps in exact order. If any source fails, skip it and continu
 
 Read `harry-search-profile.md` → Harry's profile, keywords, scoring criteria.
 Read `seen_jobs.txt` → already-sent job URLs, one per line. Store as a set in memory.
-Extract TELEGRAM_BOT_TOKEN from the conversation/routine prompt context where it was provided (format: TELEGRAM_BOT_TOKEN=...). Store it for use in STEP 7. Do NOT read config.md for this value.
 
 ---
 
@@ -169,16 +168,10 @@ Sort all 65+ jobs descending by score. Cap at 8 max for email.
 ## STEP 6 — ZERO RESULTS
 
 If zero jobs scored 65+ after Step 5:
-Use the Gmail connector send_email tool (tool name: send_email) to send:
+Use the Gmail connector send_email tool to send:
 - To: harigadhavi1999@gmail.com
 - Subject: ☕ Coffee & Jobs — [TODAY DATE] — No matches today
 - Body: "No new Berlin HR jobs matched today's criteria. Pipeline ran successfully. [TOTAL FETCHED] jobs checked across [SOURCES USED] sources."
-Also send a Telegram notification using TELEGRAM_BOT_TOKEN from Step 1:
-```bash
-curl -s -X POST "https://api.telegram.org/bot[TELEGRAM_BOT_TOKEN]/sendMessage" \
-  -d "chat_id=8764421559" \
-  -d "text=☕ Coffee & Jobs [DATE]: No matches today. [TOTAL] jobs checked."
-```
 Then skip to Step 8.
 
 ---
@@ -219,23 +212,7 @@ Then skip to Step 8.
 </div>
 ```
 
-**Telegram push for ALL 65+ jobs:**
-Use TELEGRAM_BOT_TOKEN extracted in STEP 1 (from routine prompt).
-For each job with score >= 65, run this curl command (replace [TELEGRAM_BOT_TOKEN] with the actual token from STEP 1):
-```bash
-curl -s -X POST "https://api.telegram.org/bot[TELEGRAM_BOT_TOKEN]/sendMessage" \
-  -d "chat_id=8764421559" \
-  -d "parse_mode=HTML" \
-  -d "text=[SCORE_EMOJI][SCORE]/100 — <b>[JOB TITLE]</b>%0A[COMPANY] · [LOCATION]%0A✅ [FIT_REASON]%0A⚠️ [GAP]%0A%0A<a href='[URL]'>APPLY NOW →</a>"
-```
-Score emoji: 80+ = 🎯, 65-79 = ✅
-
-Send a final summary message after all jobs:
-```bash
-curl -s -X POST "https://api.telegram.org/bot[TELEGRAM_BOT_TOKEN]/sendMessage" \
-  -d "chat_id=8764421559" \
-  -d "text=☕ Coffee & Jobs [DATE] — Done. [N] matches sent above. [TOTAL] total jobs checked."
-```
+**Note: Telegram API is blocked by Anthropic cloud network policy. Skip Telegram — email is the only delivery channel.**
 
 ---
 
