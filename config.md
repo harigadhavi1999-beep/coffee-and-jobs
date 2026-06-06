@@ -1,8 +1,3 @@
-# config.md — Coffee & Jobs Routine Config
-# Fill in your values below. This file stays private (repo is private).
-
-TELEGRAM_BOT_TOKEN=YOUR_HERMES_BOT_TOKEN_HERE
-
-# How to find your Telegram bot token:
-# Go to your VPS → check n8n Telegram credential → copy the bot token
-# Format: 1234567890:ABCdefGHIjklMNOpqrsTUVwxyz
+# config.md — Coffee and Jobs Routine Config
+TELEGRAM_BOT_TOKEN=8873222033:AAFjT03thGBlz9o0f4L4_yH5-B_KrU72MFU
+TELEGRAM_CHAT_ID=8764421559
