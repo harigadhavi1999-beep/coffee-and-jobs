@@ -2,3 +2,4 @@
 # Format: one job URL per line
 # Updated automatically each run — do not edit manually
 # Created: 2026-06-06
+https://www.arbeitnow.com/jobs/companies/superhuman/senior-technical-recruiter-berlin-246070
